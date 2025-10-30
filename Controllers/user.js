@@ -13,7 +13,7 @@ export const addUser = (req, res) => {
   const new_user_res = { id: uuidv4(), ...newUser };
   users.push(new_user_res);
   console.log(new_user_res);
-  res.status(200).send(new_user_res);
+  res.status(201).send(new_user_res);
 };
 
 //Getting a user
