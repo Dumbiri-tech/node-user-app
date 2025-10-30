@@ -26,8 +26,7 @@ jobs:
 
       - name: Run Postman Collection
         run: |
-          newman run "GroceryStoreCollection.json" \
-            -e "GroceryStoreEnvironment.json" \
+          newman run "New Collection.postman_collection.json" \
             -r cli,htmlextra \
             --reporter-htmlextra-export ./newman/report.html
 
