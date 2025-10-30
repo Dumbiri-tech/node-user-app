@@ -21,13 +21,20 @@ jobs:
         with:
           node-version: "18"
 
+      - name: Install dependencies
+        run: npm install
+
+      - name: Start API server
+        run: |
+          nohup npm start &
+          sleep 5  # give the server time to start
+
       - name: Install Newman
         run: npm install -g newman newman-reporter-htmlextra
 
       - name: Run Postman Collection
         run: |
-          newman run "GroceryStoreCollection.json" \
-            -e "GroceryStoreEnvironment.json" \
+          newman run "New Collection.postman_collection.json" \
             -r cli,htmlextra \
             --reporter-htmlextra-export ./newman/report.html
 
